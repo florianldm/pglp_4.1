@@ -1,0 +1,6 @@
+Rappels:
+Classe immuable: on ne doit pas exporter des valeurs.
+- classe final
+- attributs final
+- références à this ne doivent pas être exportées
+- les champs faisant référence à un objet non immuable doivent être privés, pas exportés, représenter l'unique référence à cet objet et ne jamais modifier l'état de l'objet
