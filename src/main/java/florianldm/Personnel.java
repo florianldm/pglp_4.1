@@ -29,7 +29,7 @@ public final class Personnel {
     /**
      * Builder.
      */
-    private static class Builder {
+    public static class Builder {
         /**
          * nom.
          */
