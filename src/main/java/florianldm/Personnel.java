@@ -1,19 +1,93 @@
 package florianldm;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 public final class Personnel {
+    /** Nom. */
     private final String nom;
+    /** Prenom. */
     private final String prenom;
+    /** Naissance. */
     private final LocalDate naissance;
+    /** Liste de téléphones. */
     private final ArrayList<String> tel;
 
-    public Personnel(final String nom1, final String prenom1, final LocalDate naissance1, final ArrayList<String> tel1){
+    /**
+     * Constructeur.
+     * @param nom1 nom perso.
+     * @param prenom1 prenom perso.
+     * @param naissance1 date de naissance.
+     * @param tel1 liste de tels.
+     */
+    public Personnel(final String nom1, final String prenom1, final LocalDate naissance1, final ArrayList<String> tel1) {
         this.nom = new String(nom1);
         this.prenom = new String(prenom1);
         this.naissance = naissance1;
         this.tel = new ArrayList<String>(tel1);
     }
 
+    /**
+     * Builder.
+     */
+    private static class Builder {
+        /**
+         * nom.
+         */
+        private final String nom;
+        /**
+         * prenom.
+         */
+        private final String prenom;
+        /**
+         * naissance.
+         */
+        private final LocalDate naissance;
+
+        /**
+         * Optionnel: téléphones.
+         */
+        private ArrayList<String> tel;
+
+        /**
+         * Constructeur Builder parametres obligatoires.
+         *
+         * @param nom1       perso.
+         * @param prenom1    perso.
+         * @param naissance1 perso.
+         */
+        public Builder(final String nom1, final String prenom1, final LocalDate naissance1) {
+            this.nom = nom1;
+            this.prenom = prenom1;
+            this.naissance = naissance1;
+        }
+
+        /**
+         * Méthode ajouter téléphone.
+         * @param tel1 telephone.
+         * @return Builder.
+         */
+        public Builder telephone(final ArrayList<String> tel1) {
+            tel = tel1;
+            return this;
+        }
+
+        /**
+         * Build.
+         * @return instance de personnel.
+         */
+        public Personnel build() {
+            return new Personnel(this);
+        }
+    }
+
+    /**
+     * Constructeur.
+     * @param builder .
+     */
+    private Personnel(Builder builder) {
+        nom = builder.nom;
+        prenom = builder.prenom;
+        naissance = builder.naissance;
+        tel = builder.tel;
+    }
 }
