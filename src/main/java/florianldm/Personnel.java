@@ -2,7 +2,7 @@ package florianldm;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public final class Personnel {
+public final class Personnel implements {
     /** Nom. */
     private final String nom;
     /** Prenom. */
@@ -29,7 +29,7 @@ public final class Personnel {
     /**
      * Builder.
      */
-    public static class Builder {
+    public static class Builder implements Composant {
         /**
          * nom.
          */
@@ -71,6 +71,11 @@ public final class Personnel {
             return this;
         }
 
+        @Override
+        public void afficheNom() {
+            System.out.println(this.nom);
+        }
+
         /**
          * Build.
          * @return instance de personnel.
@@ -82,7 +87,7 @@ public final class Personnel {
 
     /**
      * Constructeur.
-     * @param builder .
+     * @param builder b.
      */
     private Personnel(Builder builder) {
         nom = builder.nom;
