@@ -2,6 +2,7 @@ package florianldm;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 public class Groupe implements Composant {
     /** Collection représentant le personnel du groupe. */
@@ -25,14 +26,25 @@ public class Groupe implements Composant {
     /**
      * Suppression d'un personnel du groupe.
      * @param comp composant.
+     * @return boolean.
      */
-    public void remove(final Composant comp) {
-        c.remove(comp);
+    public boolean remove(final Composant comp) {
+        if (!c.isEmpty()) {
+            c.remove(comp);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /** Parcours du groupe et affiche les membres. */
     @Override
     public void afficheNom() {
-
+        System.out.println("Avec iterator: ");
+        for (Iterator i = c.iterator(); i.hasNext();) {
+            Object objet = i.next();
+            Composant composant = (Composant) objet;
+            composant.afficheNom();
+        }
     }
 }

@@ -2,7 +2,7 @@ package florianldm;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public final class Personnel {
+public final class Personnel implements Composant {
     /** Nom. */
     private final String nom;
     /** Prenom. */
@@ -97,5 +97,10 @@ public final class Personnel {
         prenom = builder.prenom;
         naissance = builder.naissance;
         tel = builder.tel;
+    }
+
+    @Override
+    public void afficheNom() {
+
     }
 }
