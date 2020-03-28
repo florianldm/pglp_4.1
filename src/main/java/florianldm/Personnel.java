@@ -20,8 +20,8 @@ public final class Personnel implements Composant {
      * @param tel1 liste de tels.
      */
     public Personnel(final String nom1, final String prenom1, final LocalDate naissance1, final ArrayList<String> tel1) {
-        this.nom = new String(nom1);
-        this.prenom = new String(prenom1);
+        this.nom = nom1;
+        this.prenom = prenom1;
         this.naissance = naissance1;
         this.tel = new ArrayList<String>(tel1);
     }
